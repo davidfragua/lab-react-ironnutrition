@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Divider, Input } from 'antd';
 
 
 function Search(props) {
@@ -12,8 +13,7 @@ function Search(props) {
 
   return (
     <div>
-        <h3>Search</h3>
-        <input type="text" name="search" value={searchInput} onChange={handleChange} placeholder="Enter search query"/>
+        <Input type="text" name="search" value={searchInput} onChange={handleChange} placeholder="Enter search query"/>
 
 
 

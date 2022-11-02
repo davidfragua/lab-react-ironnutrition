@@ -31,10 +31,25 @@ function App() {
   }
 
 
+  const deleteFood = (foodId) => {
+
+      const filteredList = listFoodToShow.filter((eachFood) => {
+        if(eachFood.id === foodId) {
+          return false
+        } else {
+          return true
+        }
+      })
+
+      setListFoodToShow(filteredList)
+  }
+
+
 
 
   return (
     <div className="App">
+      <Divider>Search</Divider>
       <Search filteredListFood={filteredListFood} />
       <br />
       <h2>Food List</h2>
@@ -42,7 +57,8 @@ function App() {
         {listFoodToShow.map((eachFood, index) => {
           return (
             <div key={eachFood.name + index}>
-              <FoodBox food={eachFood} />
+              <FoodBox food={eachFood} deleteFood={deleteFood}/>
+              
             </div>
 
             // <div  key={eachFood.name + index} >
