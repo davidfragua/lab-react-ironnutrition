@@ -3,6 +3,7 @@ import { Card, Row, Col, Divider, Input, Button } from 'antd';
 import './App.css';
 import foods from './foods.json';
 import { useState } from 'react';
+import FoodBox from './components/FoodBox';
 
 function App() {
 
@@ -20,7 +21,14 @@ const [ listFood, setListFood ] = useState(foods)
             </div>  
             )  
           }
-          )})
+          )}
+
+<FoodBox food={ {
+  name: "Orange",
+  calories: 85,
+  image: "https://i.imgur.com/abKGOcv.jpg",
+  servings: 1
+}} />
           </div>
   );
 }
