@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import { Card, Row, Col, Divider, Input, Button } from 'antd';
+import { Card, Row, Col, Divider, Input, Button, Collapse } from 'antd';
 import './App.css';
 import foods from './foods.json';
 import { useState } from 'react';
@@ -7,9 +7,11 @@ import FoodBox from './components/FoodBox';
 import AddFoodForm from './components/AddFoodForm';
 import Search from './components/Search';
 
+
 function App() {
   const [listFood, setListFood] = useState(foods);
   const [ listFoodToShow, setListFoodToShow ] = useState(foods)
+  const [ formIsShowing, setFormIsShowing ] = useState(false)
 
   const addFood = (oneFood) => {
     const copyListFood = [...listFood];
@@ -44,7 +46,13 @@ function App() {
       setListFoodToShow(filteredList)
   }
 
-
+  const toggleForm = () => {
+    if(formIsShowing === true) {
+      setFormIsShowing(false)
+    } else {
+      setFormIsShowing(true)
+    }
+  }
 
 
   return (
@@ -61,15 +69,18 @@ function App() {
               
             </div>
 
-            // <div  key={eachFood.name + index} >
-            //     <p>{eachFood.name}</p>
-            //     <img src={eachFood.image} width={75} />
-            //   </div>
           );
         })}
       </Row>
+        <Button onClick={toggleForm}>Add New Form</Button>
+        
+        {/* pendiente revisar docu de ant design para ver cómo usar Collapse */}
+        {/* <Collapse in={formIsShowing}>
+          <div>
+              <AddFoodForm newFood={addFood} />
+          </div>
+          </ Collapse> */}
 
-      <AddFoodForm newFood={addFood} />
     </div>
   );
 }
