@@ -13,22 +13,22 @@ const [ listFood, setListFood ] = useState(foods)
 
   return (
     <div className="App">
+      <Row style={{ width: '100%', justifyContent: 'center' }}>
       {listFood.map((eachFood, index) => {
         return (
-          <div  key={eachFood.name + index} >
-              <p>{eachFood.name}</p>
-              <img src={eachFood.image} width={75} />
-            </div>  
+          
+          <div key={eachFood.name + index}>
+              <FoodBox food={eachFood} />
+            </div>
+
+          // <div  key={eachFood.name + index} >
+          //     <p>{eachFood.name}</p>
+          //     <img src={eachFood.image} width={75} />
+          //   </div>  
             )  
           }
           )}
-
-<FoodBox food={ {
-  name: "Orange",
-  calories: 85,
-  image: "https://i.imgur.com/abKGOcv.jpg",
-  servings: 1
-}} />
+          </Row>
           </div>
   );
 }
