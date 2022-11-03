@@ -33,14 +33,11 @@ function App() {
   }
 
 
-  const deleteFood = (foodId) => {
+  const deleteFood = (name) => {
 
       const filteredList = listFoodToShow.filter((eachFood) => {
-        if(eachFood.id === foodId) {
-          return false
-        } else {
-          return true
-        }
+        return eachFood.name !== name
+       
       })
 
       setListFoodToShow(filteredList)
@@ -55,6 +52,7 @@ function App() {
   }
 
 
+
   return (
     <div className="App">
       <Divider>Search</Divider>
@@ -64,8 +62,11 @@ function App() {
       <Row style={{ width: '100%', justifyContent: 'center' }}>
         {listFoodToShow.map((eachFood, index) => {
           return (
-            <div key={eachFood.name + index}>
-              <FoodBox food={eachFood} deleteFood={deleteFood}/>
+            <div >
+              <FoodBox 
+              key={eachFood.name + index} 
+              food={eachFood} 
+              deleteFood={deleteFood}/>
               
             </div>
 
@@ -75,11 +76,11 @@ function App() {
         <Button onClick={toggleForm}>Add New Form</Button>
         
         {/* pendiente revisar docu de ant design para ver cómo usar Collapse */}
-        {/* <Collapse in={formIsShowing}>
+        {/* <Collapse in={formIsShowing}> */}
           <div>
               <AddFoodForm newFood={addFood} />
           </div>
-          </ Collapse> */}
+          {/* </ Collapse> */}
 
     </div>
   );

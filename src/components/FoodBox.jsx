@@ -2,6 +2,12 @@ import { Card, Row, Col, Divider, Input, Button } from 'antd';
 
 function FoodBox(props) {
 
+ 
+
+  const handleDeleteClick = () => {
+      // tenemos name
+    props.deleteFood(props.food.name)
+  }
   
   return (
     <Col>
@@ -15,9 +21,9 @@ function FoodBox(props) {
         <p>
           <b>Total Calories: {props.food.calories * props.food.servings} </b> kcal
         </p>
-        {/* <Button type="primary" onClick={() => {deleteFood()}}> Delete </Button> */}
+        <Button type="primary" onClick={handleDeleteClick}> Delete </Button>
         {/* no he conseguido que funcionara al traer la función con props. He intentado varias cosas pero nada  */}
-        <Button type="primary" > Delete </Button>
+        {/* <Button type="primary" > Delete </Button> */}
 
 
     </Card>

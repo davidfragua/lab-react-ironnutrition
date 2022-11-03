@@ -1,4 +1,4 @@
-import { Divider, Input } from 'antd';
+import { Divider, Input, Button } from 'antd';
 import { useState } from 'react';
 
 
@@ -46,10 +46,10 @@ function AddFoodForm(props) {
         <label htmlFor="image">Image</label>
         <Input value={imageNew} type="text" name="image" onChange={handleChangeImage} />
         <label htmlFor="calories">Calories</label>
-        <Input value={caloriesNew} type="text" name="calories" onChange={handleChangeCalories} />
+        <Input value={caloriesNew} type="number" name="calories" onChange={handleChangeCalories} />
         <label htmlFor="servings">Servings</label>
-        <Input value={servingsNew} type="text" name="servings" onChange={handleChangeServings} />
-        <button onClick={addFood}>Create</button>
+        <Input value={servingsNew} type="number" name="servings" onChange={handleChangeServings} />
+        <Button type="submit" onClick={addFood}>Create</Button>
         </form>
 
 
